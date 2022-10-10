@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Sauce = require('./models/sauce')
+const saucesRoutes = require('./routes/sauceRoute');
 
 const app = express();
 
@@ -15,16 +15,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/sauces', (req, res, next) => {
-    Sauce.find()
-        .then(sauces => res.status(200).json(sauces))
-        .catch(error => res.status(400).json({ error }));
-});
-
-app.get('/api/sauces/:id', (req, res, next) => {
-    Sauce.findOne({ _id: req.params.id })
-        .then(sauce => res.status(200).json(sauce))
-        .catch(error => res.status(404).json({ error }));
-});
+app.use('/api/sauces', saucesRoutes);
 
 module.exports = app;
