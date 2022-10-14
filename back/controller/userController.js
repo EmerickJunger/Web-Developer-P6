@@ -1,4 +1,4 @@
-const User = require("../models/user");
+/*const User = require("../models/user");
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -60,4 +60,4 @@ exports.login = (req, res, next) => {
     } else {
         throw 'Email ou mot de passe non valide !';
     }
-};
+};*/
