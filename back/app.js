@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const saucesRoutes = require('./routes/sauceRoute');
-const authsRoutes = require('./routes/userRoute');
+const usersRoutes = require('./routes/userRoute');
 
 const app = express();
 
@@ -16,17 +16,11 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    next();
-});
-
 app.use('/api/sauces', saucesRoutes);
+app.use('/api/auth', usersRoutes);
 
-//app.post('/api/sauces', saucesRoutes);
+app.use(bodyParser.json());
 
-app.post('/api/auth', authsRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
