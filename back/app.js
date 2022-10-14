@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const saucesRoutes = require('./routes/sauceRoute');
-const authsRoutes = require('./routes/authRoute');
+const authsRoutes = require('./routes/userRoute');
 
 const app = express();
 
@@ -24,6 +24,8 @@ app.post((req, res, next) => {
 });
 
 app.use('/api/sauces', saucesRoutes);
+
+//app.post('/api/sauces', saucesRoutes);
 
 app.post('/api/auth', authsRoutes);
 
