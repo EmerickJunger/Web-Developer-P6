@@ -19,8 +19,8 @@ app.use((req, res, next) => {
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', usersRoutes);
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
-app.use('/images', express.static(path.join(__dirname, 'images')));
+//app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;

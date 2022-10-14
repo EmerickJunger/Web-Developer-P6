@@ -14,8 +14,7 @@ exports.getOneSauce = (req, res, next) => {
         .catch(error => res.status(404).json({ error }));
 };
 
-exports.c
-postCreateSauce = (req, res, next) => {
+exports.postCreateSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
     const sauce = new Sauce({
