@@ -10,6 +10,13 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/piiquante')
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
+/*mongoose.connect('mongodb+srv://Emerick:<poulet>@cluster0-pme76.mongodb.net/test?retryWrites=true&w=majority',
+    { useNewUrlParser: true,
+      useUnifiedTopology: true })
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(() => console.log('Connexion à MongoDB échouée !'));*/
+
+app.use(express.json());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
