@@ -13,6 +13,6 @@ module.exports = (req, res, next) => {
         }
     }
     catch {
-        res.status(401).json({ error: error | 'Utilisateur non authentifié !' })
+        res.status(401).json({ error: 'Utilisateur non authentifié !' })
     }
 };
