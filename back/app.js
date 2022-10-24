@@ -7,14 +7,14 @@ const path = require('path');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/piiquante')
+/*mongoose.connect('mongodb://localhost:27017/piiquante')
     .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
-/*mongoose.connect('mongodb+srv://Emerick:<poulet>@cluster0-pme76.mongodb.net/test?retryWrites=true&w=majority',
+    .catch(() => console.log('Connexion à MongoDB échouée !'));*/
+mongoose.connect('mongodb+srv://Emerick:poulet@sauces.wjqv84t.mongodb.net/?retryWrites=true&w=majority',
     { useNewUrlParser: true,
       useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));*/
+    .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use(express.json());
 
