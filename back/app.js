@@ -4,12 +4,10 @@ const saucesRoutes = require('./routes/sauceRoute');
 const usersRoutes = require('./routes/userRoute');
 const bodyParser = require('body-parser');
 const path = require('path');
+/*const multer = require('../middlewares/multer');*/
 
 const app = express();
 
-/*mongoose.connect('mongodb://localhost:27017/piiquante')
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));*/
 mongoose.connect('mongodb+srv://Emerick:poulet@sauces.wjqv84t.mongodb.net/?retryWrites=true&w=majority',
     { useNewUrlParser: true,
       useUnifiedTopology: true })
@@ -31,5 +29,18 @@ app.use('/api/auth', usersRoutes);
 app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
+/*app.post('/api/photo',function(req,res){
+    const newImage = new image();
+    newImage.img.data = fs.readFileSync(req.files.userPhoto.path)
+    newImage.img.contentType = 'image/png';
+    newImage.save();
+    });
+
+app.use(multer({ dest: './uploads/',
+rename: function (fieldname, filename) {
+return filename;
+},
+}));*/
 
 module.exports = app;
