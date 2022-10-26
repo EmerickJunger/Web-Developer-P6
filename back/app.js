@@ -4,7 +4,6 @@ const saucesRoutes = require('./routes/sauceRoute');
 const usersRoutes = require('./routes/userRoute');
 const bodyParser = require('body-parser');
 const path = require('path');
-/*const multer = require('../middlewares/multer');*/
 
 const app = express();
 
@@ -29,18 +28,5 @@ app.use('/api/auth', usersRoutes);
 app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
-
-app.post('/images',function(req,res){
-    const newImage = new Image();
-    newImage.img.data = fs.readFileSync(req.files.userPhoto.path)
-    newImage.img.contentType = 'image/jpg';
-    newImage.save();
-    });
-
-/*app.use(multer({ dest: './uploads/',
-rename: function (fieldname, filename) {
-return filename;
-},
-}));*/
 
 module.exports = app;
