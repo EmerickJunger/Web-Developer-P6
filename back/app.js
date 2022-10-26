@@ -30,14 +30,14 @@ app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-/*app.post('/api/photo',function(req,res){
-    const newImage = new image();
+app.post('/images',function(req,res){
+    const newImage = new Image();
     newImage.img.data = fs.readFileSync(req.files.userPhoto.path)
-    newImage.img.contentType = 'image/png';
+    newImage.img.contentType = 'image/jpg';
     newImage.save();
     });
 
-app.use(multer({ dest: './uploads/',
+/*app.use(multer({ dest: './uploads/',
 rename: function (fieldname, filename) {
 return filename;
 },
