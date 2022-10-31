@@ -4,6 +4,7 @@ const saucesRoutes = require('./routes/sauceRoute');
 const usersRoutes = require('./routes/userRoute');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs  = require('fs');
 
 const app = express();
 
@@ -21,6 +22,10 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
+
+if (!fs.existsSync('images')){
+  fs.mkdirSync('images');
+}
 
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', usersRoutes);
