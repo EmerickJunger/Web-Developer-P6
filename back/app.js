@@ -26,12 +26,11 @@ app.use((req, res, next) => {
 if (!fs.existsSync('images')){
   fs.mkdirSync('images');
 }
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', usersRoutes);
 
-app.use(bodyParser.json());
-
-app.use('/images', express.static(path.join(__dirname, 'images')));
+//app.use(bodyParser.json());
 
 module.exports = app;
